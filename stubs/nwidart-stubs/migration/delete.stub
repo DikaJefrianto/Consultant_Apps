@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+<<<<<<<< HEAD:Src/Backend/Bussiness-travel/stubs/nwidart-stubs/migration/delete.stub
+        Schema::table('$TABLE$', function (Blueprint $table) {
+            $FIELDS_UP$
+========
+        Schema::table('hasil_perhitungans', function (Blueprint $table) {
+            $table->string('titik_awal')->nullable()->before('kategori');
+            $table->string('titik_tujuan')->nullable()->after('titik_awal');
+>>>>>>>> featur/306-310/manajemen-emisi:Src/Backend/Bussiness-travel/database/migrations/2025_06_10_083130_add_titik_awal_titik_tujuan_to_hasil_perhitungans_table.php
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+<<<<<<<< HEAD:Src/Backend/Bussiness-travel/stubs/nwidart-stubs/migration/delete.stub
+        Schema::table('$TABLE$', function (Blueprint $table) {
+            $FIELDS_DOWN$
+========
+        Schema::table('hasil_perhitungans', function (Blueprint $table) {
+            $table->dropColumn(['titik_awal', 'titik_tujuan']);
+>>>>>>>> featur/306-310/manajemen-emisi:Src/Backend/Bussiness-travel/database/migrations/2025_06_10_083130_add_titik_awal_titik_tujuan_to_hasil_perhitungans_table.php
+        });
+    }
+};

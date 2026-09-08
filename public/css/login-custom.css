@@ -1,0 +1,325 @@
+/* Variabel Warna dan Font (Estimasi dari gambar) */
+:root {
+    /* Mode Terang */
+    --bg-page-light: #E0FFF2; /* Warna background halaman hijau muda */
+    --card-bg-light: #FFFFFF; /* Background kartu login putih */
+    --card-border-light: #ADD8E6; /* Warna border biru muda untuk kartu */
+    --text-primary-dark: #333333; /* Warna teks utama */
+    --text-secondary-dark: #666666; /* Warna teks sekunder/subtitle */
+    --input-border-light: #CCCCCC; /* Border input */
+    --input-focus-border: #3498db; /* Border input saat fokus */
+    --button-bg-light: #28A745; /* Warna tombol hijau */
+    --button-hover-light: #218838; /* Warna tombol hijau saat hover */
+    --logo-green: #28a745; /* Warna hijau logo */
+    --logo-text-dark: #333333; /* Warna teks Naima Sustainability */
+    --shadow-light: rgba(0, 0, 0, 0.08); /* Bayangan kartu */
+    --remember-me-text: #666666; /* Warna teks Remember Me */
+    --language-btn-bg: #FFFFFF;
+    --language-btn-border: #CCCCCC;
+    --language-btn-text: #333333;
+
+    /* Font (Estimasi, gunakan font yang ada atau import dari Google Fonts jika ingin spesifik) */
+    --font-family-sans: 'Arial', 'Helvetica Neue', Helvetica, sans-serif; /* Font sans-serif umum */
+}
+
+/* Variabel Warna untuk Mode Gelap */
+body.dark-mode {
+    --bg-page-light: #1A1A2E; /* Background halaman gelap */
+    --card-bg-light: #2C2C40; /* Background kartu login gelap */
+    --card-border-light: #4A6E8C; /* Border kartu gelap */
+    --text-primary-dark: #E0E0E0; /* Teks terang */
+    --text-secondary-dark: #AAAAAA; /* Teks sekunder terang */
+    --input-border-light: #555555; /* Border input gelap */
+    --input-focus-border: #5A9BD6; /* Border input fokus gelap */
+    --button-bg-light: #1E8449; /* Warna tombol hijau gelap */
+    --button-hover-light: #186A3B; /* Warna tombol hover gelap */
+    --logo-green: #3CB371; /* Warna hijau logo gelap */
+    --logo-text-dark: #E0E0E0; /* Warna teks logo gelap */
+    --shadow-light: rgba(0, 0, 0, 0.4); /* Bayangan kartu gelap */
+    --remember-me-text: #AAAAAA; /* Warna teks Remember Me gelap */
+    --language-btn-bg: #3A3A50;
+    --language-btn-border: #555555;
+    --language-btn-text: #E0E0E0;
+}
+
+
+/* --- Global Reset & Body Styling --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.login-page-body {
+    font-family: var(--font-family-sans);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-page-light); /* Warna background dari gambar */
+    color: var(--text-primary-dark);
+    transition: background-color 0.3s, color 0.3s;
+    position: relative; /* Untuk positioning tombol fixed */
+}
+
+/* --- Language Selector (Top Right) --- */
+.language-selector {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: 10;
+}
+
+.language-selector .dropbtn {
+    background-color: var(--language-btn-bg);
+    color: var(--language-btn-text);
+    padding: 8px 12px;
+    font-size: 1em;
+    border: 1px solid var(--language-btn-border);
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.language-selector .dropbtn:hover {
+    background-color: var(--language-btn-border);
+}
+
+.language-selector .flag-icon {
+    width: 20px;
+    height: auto;
+}
+
+/* --- Main Login Card Container --- */
+.login-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px; /* Lebar sesuai gambar */
+    padding: 20px; /* Padding untuk responsivitas */
+}
+
+.login-card {
+    background-color: var(--card-bg-light);
+    border-radius: 15px; /* Sudut membulat */
+    box-shadow: 0 4px 15px var(--shadow-light); /* Bayangan lembut */
+    border: 1px solid var(--card-border-light); /* Border biru muda */
+    padding: 40px 30px; /* Padding internal */
+    text-align: center;
+    width: 100%;
+    transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+/* --- Logo and Text --- */
+.logo-container {
+    display: flex;
+    flex-direction: column; /* Logo di atas teks */
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.naima-logo {
+    width: 60px; /* Ukuran logo, sesuaikan */
+    height: auto;
+    margin-bottom: 10px; /* Jarak antara logo dan teks */
+}
+
+.naima-text {
+    font-size: 1.5em; /* Ukuran teks NAIMA Sustainability */
+    font-weight: bold;
+    color: var(--logo-text-dark);
+    line-height: 1.1; /* Baris spasi */
+}
+
+/* --- Titles --- */
+.login-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--text-primary-dark);
+    margin-bottom: 5px;
+}
+
+.login-subtitle {
+    font-size: 0.95em;
+    color: var(--text-secondary-dark);
+    margin-bottom: 30px; /* Jarak bawah subtitle ke form */
+}
+
+/* --- Form Styles --- */
+.login-form {
+    text-align: left; /* Rata kiri untuk label dan input */
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.9em;
+    color: var(--text-primary-dark);
+    font-weight: 600; /* Lebih tebal */
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--input-border-light);
+    border-radius: 5px; /* Sudut membulat input */
+    font-size: 1em;
+    color: var(--text-primary-dark);
+    background-color: var(--card-bg-light); /* Background input sama dengan kartu */
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.form-control::placeholder { /* Placeholder color */
+    color: var(--text-secondary-dark);
+    opacity: 0.7;
+}
+
+.form-control:focus {
+    border-color: var(--input-focus-border);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2); /* Bayangan biru saat fokus */
+}
+
+/* Validation Feedback (Laravel default) */
+.form-control.is-invalid {
+    border-color: #dc3545; /* Bootstrap red */
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 0.85em;
+    margin-top: 5px;
+    display: block;
+}
+
+.remember-me-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px; /* Jarak bawah ke tombol login */
+    font-size: 0.9em;
+    color: var(--remember-me-text);
+}
+
+.remember-me-checkbox .form-check-input {
+    margin-right: 8px;
+    width: 16px; /* Ukuran checkbox */
+    height: 16px;
+    flex-shrink: 0; /* Agar tidak menyusut */
+}
+
+/* --- Login Button --- */
+.login-submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--button-bg-light); /* Hijau dari gambar */
+    color: var(--text-white);
+    border: none;
+    border-radius: 8px; /* Sudut membulat tombol */
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-submit-button:hover {
+    background-color: var(--button-hover-light);
+}
+
+/* --- Theme Toggle Button (Bottom Right Fixed) --- */
+.theme-toggle-fixed-button {
+    position: fixed; /* Posisi tetap di layar */
+    bottom: 25px;
+    right: 25px;
+    background-color: var(--card-bg-light);
+    color: var(--text-primary-dark);
+    border: 1px solid var(--card-border-light);
+    border-radius: 50%; /* Bulat sempurna */
+    width: 50px; /* Ukuran tombol */
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em; /* Ukuran ikon */
+    box-shadow: 0 2px 10px var(--shadow-light);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    z-index: 10;
+}
+
+.theme-toggle-fixed-button:hover {
+    box-shadow: 0 4px 15px var(--shadow-light);
+}
+
+/* Kontrol tampilan ikon sun/moon */
+.theme-toggle-fixed-button .bi-sun { display: none; }
+.theme-toggle-fixed-button .bi-moon { display: inline-block; }
+
+.login-page-body.dark-mode .theme-toggle-fixed-button .bi-moon { display: none; }
+.login-page-body.dark-mode .theme-toggle-fixed-button .bi-sun { display: inline-block; }
+
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .login-card-container {
+        padding: 15px;
+    }
+    .login-card {
+        padding: 30px 20px;
+        border-radius: 10px;
+    }
+    .login-title {
+        font-size: 1.5em;
+    }
+    .login-subtitle {
+        font-size: 0.9em;
+        margin-bottom: 20px;
+    }
+    .naima-logo {
+        width: 50px;
+    }
+    .naima-text {
+        font-size: 1.3em;
+    }
+    .language-selector {
+        top: 15px;
+        right: 15px;
+    }
+    .language-selector .dropbtn {
+        padding: 6px 10px;
+        font-size: 0.9em;
+    }
+    .theme-toggle-fixed-button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3em;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 25px 15px;
+    }
+    .login-title {
+        font-size: 1.3em;
+    }
+    .login-subtitle {
+        font-size: 0.85em;
+    }
+    .login-submit-button {
+        padding: 10px;
+        font-size: 1em;
+    }
+    .form-label, .remember-me-checkbox label {
+        font-size: 0.85em;
+    }
+}

@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+<<<<<<<< HEAD:Src/Backend/Bussiness-travel/stubs/nwidart-stubs/migration/create.stub
+        Schema::create('$TABLE$', function (Blueprint $table) {
+            $table->id();
+            $FIELDS$
+========
+        Schema::create('feedbacks', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->text('isi');
+>>>>>>>> featur/306-310/manajemen-emisi:Src/Backend/Bussiness-travel/database/migrations/2025_05_24_072833_create_feedbacks_table.php
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+<<<<<<<< HEAD:Src/Backend/Bussiness-travel/stubs/nwidart-stubs/migration/create.stub
+        Schema::dropIfExists('$TABLE$');
+========
+        Schema::dropIfExists('feedbacks');
+>>>>>>>> featur/306-310/manajemen-emisi:Src/Backend/Bussiness-travel/database/migrations/2025_05_24_072833_create_feedbacks_table.php
+    }
+};
